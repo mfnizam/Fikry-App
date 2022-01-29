@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SDM-30</string>
+    <string name="title_activity_main">SDM-30</string>
+    <string name="package_name">com.mfnizam.schooladministration</string>
+    <string name="custom_url_scheme">com.mfnizam.schooladministration</string>
+</resources>

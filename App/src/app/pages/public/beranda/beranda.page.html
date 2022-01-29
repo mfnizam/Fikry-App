@@ -1,0 +1,132 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="ion-align-items-center">
+			<ion-col>
+				<ion-text color="medium">
+					<h6 class="ion-no-margin">Selamat Malam</h6>
+				</ion-text>
+				<h3 class="ion-no-margin">{{userData?.namaLengkap}}</h3>
+			</ion-col>
+			<ion-col size="auto">
+				<ion-avatar [routerLink]="['/public/akun']" class="border-avatar">
+					<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+				</ion-avatar>
+			</ion-col>
+		</ion-row>
+		<!-- <ion-row>
+			<ion-col>
+				<h4 class="ion-no-margin ion-padding-top">Kategori Tagihan</h4>
+			</ion-col>
+		</ion-row> -->
+		<!-- <ion-row class="kategori">
+			<ion-col>
+				<ion-card [routerLink]="['/public/list/tagihan', {filter: 'spp'}]" mode="ios" class="ion-no-margin ion-padding">
+					<b>Sumbangan <br>Pembinaan <br>Pendidikan (SPP)</b>
+				</ion-card>
+			</ion-col>
+			<ion-col>
+				<ion-card [routerLink]="['/public/list/tagihan', {filter: 'buku'}]" mode="ios" class="ion-no-margin ion-padding">
+					<b>Tagihan <br>Pembayaran <br>Buku</b>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+		<ion-row class="kategori">
+			<ion-col>
+				<ion-card [routerLink]="['/public/list/tagihan', {filter: 'extra'}]" mode="ios" class="ion-no-margin ion-padding">
+					<b>Pembayaran <br>Extrakulikuler</b>
+				</ion-card>
+			</ion-col>
+			<ion-col>
+				<ion-card [routerLink]="['/public/list/tagihan', {filter: 'lain'}]" mode="ios" class="ion-no-margin ion-padding">
+					<b>Pembayaran <br>Lain Lain</b>
+				</ion-card>
+			</ion-col>
+		</ion-row> -->
+
+		<ion-row>
+			<ion-col class="d-flex ion-align-items-center">
+				<h3 class="flex-1 ion-no-margin c-medium-tint"><b>Tagihan Anda</b></h3>
+				<ion-note [routerLink]="['/public/list/tagihan', { filter: 'tagihan' }]" color="primary" class="flex-shrink-0">Lihat Semua ({{dataTagihan.length}})</ion-note>
+			</ion-col>
+		</ion-row>
+		<ion-row class="tagihan">
+			<ion-col>
+				<div *ngIf="dataTagihan.length > 0">
+					<div #tagihanList *ngFor="let t of dataTagihan | slice:0:2; let i = index;">
+						<ion-card size="12" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+							<div [routerLink]="['/public/tagihan/detail', {id: t._id, idSiswa: t.siswa?._id}]">
+								<div class="d-flex ion-align-items-start mb-2">
+									<h4 class="ion-no-margin flex-1 text-max text-max-1"><b>{{t.title}}</b></h4>
+								</div>
+								<div class="d-flex ion-align-items-center flex-wrap mb-2">
+									<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+										<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+									</ion-avatar>
+									<div class="flex-1">
+										<div class="text-max text-max-1"><b>{{t.siswa?.namaLengkap || '-'}}</b></div>
+										<div>{{t.siswa?.kelas?.title || '-'}}</div>
+									</div>
+									<div class="flex-shrink-0 my-1">
+										<ion-chip class="ion-no-margin" color="primary">
+											<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+										</ion-chip>	
+									</div>
+								</div>
+								<p class="text-max text-max-1 mb-1">{{t.deskripsi}}</p>
+								<div class="mb-1">
+									<div class="opacity-4">Waktu Pembayaran:</div>
+									<b class="ion-text-capitalize">{{t.waktuMulai | date: 'dd MMM yyy'}} - {{t.waktuAkhir | date: 'dd MMM yyy'}}</b>
+								</div>
+							</div>
+							<div class="d-flex ion-align-items-center">
+								<div class="mr-1 flex-1 text-max text-max-2"><div class="opacity-4">Kategori: </div><b class="ion-text-capitalize">{{t.kategori.title || '-'}}</b></div>
+								<ion-button mode="ios" fill="solid" color="primary" shape="round" class="ion-float-right flex-2 h-auto" (click)="tambahBayar(t._id, t.siswa._id, i)">
+									<div class="d-flex ion-align-items-center ion-justify-content-center">
+										<b [style.opacity]="t.loading? 0 : 1" class="my-1 py-05">+ Bayar</b>
+										<ion-spinner [style.opacity]="t.loading? 1 : 0" name="lines" class="p-absolute"></ion-spinner>
+									</div>
+								</ion-button>
+							</div>
+						</ion-card>
+					</div>
+				</div>
+
+				<div *ngIf="dataTagihan.length < 1" class="mb-2">
+					<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center h-6r d-flex ion-align-items-center">
+						<div class="w-100">
+							<div class="mb-1">{{tagihanLoading == 0? 'Selamat, anda tidak memiliki tagihan lagi..' : tagihanLoading == 1? 'Memuat Data Tagihan..' : 'Gagal Memuat Tagihan'}}</div>
+							<ion-icon *ngIf="!tagihanLoading" name="happy-outline" color="primary" style="font-size: 30pt;"></ion-icon>
+							<ion-spinner *ngIf="tagihanLoading == 1" name="lines"></ion-spinner>
+							<ion-button *ngIf="tagihanLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin" (click)="ambilTagihan(userData?._id)">Coba Lagi</ion-button>
+						</div>
+					</ion-card>
+				</div>
+				<!-- <ion-note [routerLink]="['/public/list/tagihan', { filter: 'tagihan' }]" color="primary" class="d-flex ion-justify-content-center mb-2 outline-none">Lihat 2 tagihan lainnya...</ion-note> -->
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="dataInfo">
+			<ion-col class="d-flex ion-align-items-center">
+				<h3 class="flex-1 ion-no-margin c-medium-tint"><b>Informasi</b></h3>
+				<ion-note color="primary" class="flex-shrink-0">Lihat Semua</ion-note>
+			</ion-col>
+		</ion-row>
+		<ion-row class="info">
+			<ion-col>
+				<div *ngIf="dataInfo.length > 0">
+					<ion-card *ngFor="let inf of dataInfo" size="12" mode="ios" class="ion-no-margin ion-margin-bottom ion-padding d-flex ion-align-items-center">
+						<div class="flex-1">
+							<h4 class="ion-no-margin ion-margin-bottom"><b>Penambahan tagihan untuk biaya pembangunan</b></h4>
+							<p class="text-max text-max-3">Pada tanggal 1/1/2021 pihak sekolah telah menerapkan tagihan baru untuk pembiayaan pembangunan gedung A dan gedung B. Biaya tagihan ini akan diberikan sesuai kemampuan wali murid berdasarkan nilai yang telah di sepakasi sebelumnya.</p>
+						</div>
+					</ion-card>
+				</div>
+				<div *ngIf="dataInfo.length < 1">
+					<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center">
+						<div class="c-medium-tint">Tidak Ada Informasi Terbaru</div>
+						<!-- <ion-icon name="happy-outline" color="primary" style="font-size: 40pt;"></ion-icon> -->
+					</ion-card>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="header-title ion-margin-bottom ion-align-items-center">
+			<ion-col size="auto" class="d-none back-btn">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col>
+			<ion-col class="ion-text-capitalize text-max text-max-1 wp-nowrap">Tambah Tagihan</ion-col>
+			<ion-col size="auto">
+				<button form="form" class="ion-no-padding ion-no-margin b-none d-flex ion-align-items-center ion-justify-content-center" [disabled]="form.invalid">
+					<ion-note color="primary" [style.opacity]="form.invalid? 0.2 : 1"><h4 class="ion-no-margin">Simpan</h4></ion-note>
+				</button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<form [formGroup]="form" id="form" (ngSubmit)="simpan()">
+
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating" class="ion-text-capitalize">Nama Tagihan</ion-label>
+						<ion-input formControlName="title" placeholder="Tulis nama tagihan"></ion-input>
+					</ion-item>
+					
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating">Deskripsi Tagihan</ion-label>
+						<ion-textarea rows="4" formControlName="deskripsi" placeholder="Tulis deskripsi tagihan"></ion-textarea>
+					</ion-item>
+
+					<ion-item class="ion-no-padding ion-margin-bottom" [ngClass]="(form.controls.nominal.invalid) && (form.controls.nominal.dirty || form.controls.nominal.touched)? 'item-interactive ion-invalid ion-pristine ion-touched' : ''">
+						<!-- <ion-label color="primary" position="floating" class="ion-text-capitalize">Nama Tagihan</ion-label>
+						<ion-input formControlName="nominal" placeholder="Tulis nama tagihan"></ion-input> -->
+						<div class="currency">
+							<ion-note color="primary" class="label">Nominal</ion-note>
+							<div class="d-flex ion-align-items-center">
+								<div class="mr-1 c-medium-tint">Rp</div>
+								<input currencyMask type="tel" [options]="{ prefix: '', align: 'left', precision: 0, thousands: '.', allowNegative: false, suffix: ',-' }" name="harga" placeholder="0,-" formControlName="nominal" class="b-none"/>
+							</div>
+						</div>
+					</ion-item>
+
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating" class="ion-text-capitalize">Waktu Pembayaran Mulai</ion-label>
+						<ion-datetime formControlName="waktuMulai" displayFormat="DD MMMM YYYY" placeholder="isikan tgl waktu pembayaran (Mulai)"></ion-datetime>
+					</ion-item>
+
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating" class="ion-text-capitalize">Waktu Pembayaran Berakhir</ion-label>
+						<ion-datetime formControlName="waktuAkhir" displayFormat="DD MMMM YYYY" placeholder="isikan tgl waktu pembayaran (Berakhir)"></ion-datetime>
+					</ion-item>
+
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating">Kategori</ion-label>
+						<ion-select formControlName="kategori" placeholder="Pilih kategori tagihan">
+							<ion-select-option *ngFor="let kat of kategori" [value]="kat._id">{{kat.title}}</ion-select-option>
+						</ion-select>
+					</ion-item>
+
+					<ion-item class="ion-no-padding ion-margin-bottom">
+						<ion-label color="primary" position="floating">Tagihan Untuk Kelas?</ion-label>
+						<ion-select formControlName="kelas" multiple placeholder="Pilih Kelas">
+							<ion-select-option *ngFor="let k of kelas" [value]="k._id">{{k.title}}</ion-select-option>
+						</ion-select>
+					</ion-item>
+
+
+					<!-- <div class="ion-margin-bottom">
+						<div class="ion-text-capitalize mb-1"><ion-label color="primary"><small>Tagihan Untuk?</small></ion-label></div>
+						<div>
+							<ion-button mode="ios" size="small" color="primary" (click)="pilihKelas()">
+								Pilih Kelas
+							</ion-button>
+						</div>
+					</div> -->
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="ion-margin-bottom">
+			<ion-col>
+				<div class="header-title">Histori Pembayaran</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-segment mode="ios" scrollable [value]="segmentValue" (ionChange)="segmentChange($event)">
+					<ion-segment-button *ngFor="let s of segment" [value]="s._id">
+						<ion-label>{{s.title}}</ion-label>
+					</ion-segment-button>
+				</ion-segment>
+
+				<div [ngSwitch]="segmentValue">
+					<div *ngFor="let ss of segment">
+						<ng-container *ngSwitchCase="ss._id">
+							<div *ngIf="dataPembayaranUi.length > 0">
+								<div *ngFor="let t of dataPembayaranUi">
+									<ion-card size="12" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+										<div [routerLink]="['/public/tagihan/detail', {id: t._id}]">
+											<div class="d-flex ion-align-items-start mb-2">
+												<h4 class="ion-no-margin flex-1 text-max text-max-1"><b>{{t.title}}</b></h4>
+												<ion-chip class="flex-shrink-0 ion-no-margin" color="warning">Verifikasi</ion-chip>
+											</div>
+											<div class="d-flex ion-align-items-center flex-wrap mb-2">
+												<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+													<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+												</ion-avatar>
+												<div class="flex-1">
+													<div class="text-max text-max-1"><b>Ronaldo Son</b></div>
+													<div>Kelas 2A</div>
+												</div>
+												<div class="flex-shrink-0 my-1">
+													<ion-chip class="ion-no-margin" color="primary">
+														<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+													</ion-chip>	
+												</div>
+											</div>
+											<p class="text-max text-max-3">{{t.deskripsi}}</p>
+										</div>
+										<div class="d-flex ion-align-items-center">
+											<div class="mr-1 flex-1 text-max text-max-2"><div class="opacity-4">Kategori: </div><b class="ion-text-capitalize">{{t.kategori.title}}</b></div>
+											<ion-button [routerLink]="['detail', {id: t._id}]" mode="ios" fill="solid" color="primary" shape="round" class="ion-float-right flex-2 h-auto">
+												<b class="my-1 py-05">Lihat Tagihan</b>
+											</ion-button>
+										</div>
+									</ion-card>
+								</div>
+
+								<ion-infinite-scroll (ionInfinite)="loadData($event)">
+									<ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+								</ion-infinite-scroll>
+							</div>
+							<div *ngIf="dataPembayaranUi.length < 1">
+								<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center">
+									<div class="c-medium-tint">Tidak Ada Pembayaran {{segmentTitle}}</div>
+									<!-- <ion-icon name="happy-outline" color="primary" style="font-size: 40pt;"></ion-icon> -->
+								</ion-card>
+							</div>
+						</ng-container>
+					</div>
+				</div>			
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

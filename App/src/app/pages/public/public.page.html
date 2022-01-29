@@ -1,0 +1,31 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="beranda">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Beranda</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="tagihan" #tagihanTab>
+      <ion-icon name="document-text"></ion-icon>
+      <ion-label>Tagihan</ion-label>
+      <ion-badge *ngIf="jumlahTagihan > 0" mode="ios" color="danger">{{jumlahTagihan}}</ion-badge>
+    </ion-tab-button>
+    <ion-tab-button tab="bayar" #bayarTab>
+      <ion-icon name="receipt"></ion-icon>
+      <ion-label>Daftar Bayar</ion-label>
+      <ion-badge *ngIf="jumlahBayar > 0" mode="ios" color="danger">{{jumlahBayar}}</ion-badge>
+    </ion-tab-button>
+    <!-- <ion-tab-button tab="histori">
+      <ion-icon name="reader"></ion-icon>
+      <ion-label>Histori</ion-label>
+    </ion-tab-button> -->
+    <ion-tab-button tab="pembayaran" #pembayaranTab>
+      <ion-icon name="reader"></ion-icon>
+      <ion-label>Pembayaran</ion-label>
+      <ion-badge *ngIf="jumlahPembayaran > 0" mode="ios" color="danger">{{jumlahPembayaran}}</ion-badge>
+    </ion-tab-button>
+    <ion-tab-button tab="akun">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Akun</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

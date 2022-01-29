@@ -1,0 +1,90 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="header-title ion-margin-bottom ion-align-items-center">
+			<ion-col size="auto" class="d-none back-btn">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col>
+			<ion-col>Detail Tagihan</ion-col>
+			<!-- <ion-col size="auto">
+				<div class="flex-shrink-0">
+					<h2 class="ion-no-margin">
+						<ion-icon [routerLink]="['/public/tagihan/cu', {update: true, id: dataTagihan?._id}]" name="create-outline" class="mr-2"></ion-icon>
+						<ion-icon name="trash-outline" color="danger" (click)="hapus()"></ion-icon>
+					</h2>
+				</div>
+			</ion-col> -->
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<h3 class="ion-no-margin text-max text-max-2"><b>{{dataTagihan?.title}}</b></h3>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				{{dataTagihan?.deskripsi}}
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="8">
+				<ion-chip class="ion-no-margin" color="primary">
+					<ion-label><small>Rp. </small><b>{{dataTagihan?.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+				</ion-chip>	
+			</ion-col>
+			<ion-col size="4">
+				<div class="opacity-4"><small>Kategori </small></div>
+				<b class="ion-text-capitalize text-max text-max-1">{{dataTagihan?.kategori?.title || dataTagihan?.kategoriBackup?.title}}</b>
+			</ion-col>
+		</ion-row>
+		<ion-row class="mb-1">
+			<ion-col>
+				<div>
+					<div><small>Waktu Pembayaran:</small></div>
+					<b class="ion-text-capitalize">{{dataTagihan?.waktuMulai | date: 'dd MMM yyy'}} - {{dataTagihan?.waktuAkhir | date: 'dd MMM yyy'}}</b>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row class="mb-2">
+			<ion-col>
+				<div class="opacity-2 mb-1"><b>Tagihan Untuk</b></div>
+				<ion-card mode="ios" class="ion-padding ion-no-margin">
+					<div class="d-flex ion-align-items-center flex-wrap">
+						<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+							<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+						</ion-avatar>
+						<div class="flex-1">
+							<div class="text-max text-max-1"><b>{{dataTagihan?.siswa?.namaLengkap || dataTagihan?.siswaBackup?.namaLengkap }}</b></div>
+							<div>{{dataTagihan?.siswa?.kelas?.title || dataTagihan?.kelas?.title}}</div>
+						</div>
+					</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="dataTagihan && !dataTagihan.lunas">
+			<ion-col *ngIf="!bayarStatus">
+				<ion-button expand="full" mode="ios" color="primary" shape="round" (click)="bayar(dataTagihan?._id, dataTagihan?.siswa?._id)" [disabled]="bayarStatus">
+					<div class="d-flex ion-align-items-center ion-justify-content-center">
+						<b [style.opacity]="bayarLoading? 0 : 1">+ Bayar</b>
+						<ion-spinner name="lines" class="p-absolute" [style.opacity]="bayarLoading? 1 : 0"></ion-spinner>
+					</div>
+				</ion-button>
+			</ion-col>
+			<ion-col *ngIf="bayarStatus">
+				<ion-button expand="full" mode="ios" fill="outline" shape="round" color="medium" (click)="bayarNanti(dataTagihan?._id, dataTagihan?.siswa?._id)" [disabled]="!bayarStatus">
+					<div class="d-flex ion-align-items-center ion-justify-content-center">
+						<b [style.opacity]="bayarLoading? 0 : 1">Hapus Dari Daftar Bayar</b>
+						<ion-spinner name="lines" color="medium" class="p-absolute" [style.opacity]="bayarLoading? 1 : 0"></ion-spinner>
+					</div>
+				</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-fab #bayarFab *ngIf="!url.includes('/public/bayar')" vertical="bottom" horizontal="end" slot="fixed" mode="ios">
+		<ion-fab-button routerLink="/public/list/tagihan/bayar">
+			<ion-icon name="wallet"></ion-icon>
+		</ion-fab-button>
+		<ion-badge *ngIf="jumlahBayar > 0" mode="ios" color="danger" class="p-absolute l--05 t-0 px-05">{{jumlahBayar}}</ion-badge>
+	</ion-fab>
+</ion-content>
+
+

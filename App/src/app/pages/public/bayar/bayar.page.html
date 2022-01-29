@@ -1,0 +1,71 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="header-title ion-margin-bottom ion-align-items-center">
+			<ion-col size="auto" class="d-none back-btn">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col>
+			<ion-col>Daftar Bayar</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="pb-4 mb-1">
+				<div *ngIf="dataBayar.length > 0">
+					<div #bayarList *ngFor="let t of dataBayar; let i = index;">
+						<ion-card size="12" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+							<div [routerLink]="['/public/pembayaran/detail', {id: t._id, idSiswa: t.siswa?._id}]">
+								<div class="d-flex ion-align-items-start mb-2">
+									<h4 class="ion-no-margin flex-1 text-max text-max-1"><b>{{t.title}}</b></h4>
+								</div>
+								<div class="d-flex ion-align-items-center flex-wrap mb-2">
+									<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+										<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+									</ion-avatar>
+									<div class="flex-1">
+										<div class="text-max text-max-1"><b>{{t.siswa?.namaLengkap || '-'}}</b></div>
+										<div>{{t.siswa?.kelas?.title || '-'}}</div>
+									</div>
+									<div class="flex-shrink-0">
+										<ion-chip class="ion-no-margin" color="primary">
+											<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+										</ion-chip>	
+									</div>
+								</div>
+								<p class="text-max text-max-3">{{t.deskripsi}}</p>
+							</div>
+							<div class="d-flex ion-align-items-end">
+								<div [routerLink]="['/public/pembayaran/detail', {id: t._id, idSiswa: t.siswa?._id}]" class="mr-1 flex-1 text-max text-max-2"><div class="opacity-4">Kategori: </div><b class="ion-text-capitalize">{{t.kategori.title}}</b></div>
+								<ion-note color="medium" class="flex-shrink-0" (click)="bayarNanti(t._id, t.siswa?._id, i)"><u>Bayar Nanti</u></ion-note>
+							</div>
+						</ion-card>
+					</div>
+				</div>
+				<div *ngIf="dataBayar.length < 1" class="mb-2">
+					<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center d-flex ion-align-items-center">
+						<div class="w-100">
+							<div>{{bayarLoading == 0? 'Daftar Bayar Kosong' : bayarLoading == 1? 'Memuat Daftar Bayar..' : 'Gagal Memuat Daftar Bayar'}}</div>
+							<ion-spinner *ngIf="bayarLoading == 1" name="lines" class="mt-1"></ion-spinner>
+							<ion-button *ngIf="bayarLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin mt-1" (click)="ambilBayar(userData?._id); ambilRekening()">Coba Lagi</ion-button>
+						</div>
+					</ion-card>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-grid class="p-fixed w-100 l-0 b-0">
+		<ion-row>
+			<ion-col>
+				<ion-card mode="ios" color="primary" class="border-round mb-0">
+					<div class="d-flex py-1 px-2 ion-align-items-center">
+						<div class="flex-1 d-flex ion-align-items-end">
+							<h3 class="ion-no-margin"><small>Rp.</small> <b>{{totalBayar | currency:' ':'symbol':'.0':'id'}}</b>,-</h3>
+						</div>
+						<div class="flex-shrink-0">
+							<ion-button mode="ios" color="light" shape="round" [disabled]="dataBayar.length < 1" (click)="bayar()">
+								<ion-note color="primary"><b>Bayar</b></ion-note>
+							</ion-button>
+						</div>
+					</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

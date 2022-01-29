@@ -1,0 +1,50 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="ion-margin-bottom">
+			<ion-col>
+				<div class="d-flex align-items-center">
+					<div class="header-title flex-1">Daftar Pengguna</div>
+					<ion-note color="primary" class="flex-shrink-0">+ Tambah</ion-note>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-segment mode="ios" scrollable [(ngModel)]="segmentValue" (ionChange)="segmentChange($event)">
+					<ion-segment-button *ngFor="let s of segment" [value]="s.id">
+						<ion-label>{{s.value}}</ion-label>
+					</ion-segment-button>
+				</ion-segment>
+
+				<div [ngSwitch]="segmentValue">
+					<div *ngFor="let ss of segment">
+						<ng-container *ngSwitchCase="ss.id">
+							<ion-card *ngFor="let p of penggunaUi" mode="ios" class="ion-no-margin ion-margin-bottom ion-padding border-avatar">
+								<div class="d-flex align-items-center">
+									<ion-avatar class="ion-margin-end border-avatar">
+										<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+									</ion-avatar>
+									<div class="flex-1">
+										<div><b>{{p.namaLengkap}}</b></div>
+										<div><small>Malang, Jawa Timur</small></div>
+										<ion-note *ngIf="!p.isAdmin" color="primary"><small>{{p.siswa}} siswa</small></ion-note>
+									</div>
+									<div>
+										<ion-chip [color]="p.jbl > 0? 'danger' : p.isAdmin? 'secondary' : 'primary'">
+											<ion-text [color]="p.jbl > 0? 'danger' : p.isAdmin? 'secondary' : 'primary'">
+												{{p.jbl > 0? p.jbl + ' Tagihan' :  p.isAdmin? 'Admin' : 'Lunas'}}
+											</ion-text>
+										</ion-chip>
+									</div>
+								</div>
+							</ion-card>
+							<!-- <ion-infinite-scroll (ionInfinite)="loadData($event)">
+								<ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+							</ion-infinite-scroll> -->
+						</ng-container>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

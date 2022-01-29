@@ -1,0 +1,1013 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"set",
+				"setTimeout\tfunction"
+			],
+			[
+				"cons",
+				"const\tkeyword"
+			],
+			[
+				"data",
+				"dataUpdate\tlet"
+			],
+			[
+				"bukti",
+				"buktiPembayaran"
+			],
+			[
+				"cuupdat",
+				"customeModelUpdateByQuery\tproperty"
+			],
+			[
+				"cutofi",
+				"customeModelFindByQuery\tproperty"
+			],
+			[
+				"update",
+				"customeModelUpdateByQuery\tproperty"
+			],
+			[
+				"updta",
+				"customeModelUpdateByIdPopulate\tproperty"
+			],
+			[
+				"rq",
+				"req\tparameter"
+			],
+			[
+				"customeModelFindByQueryS",
+				"customeModelFindByQuerySelectPopulate\tproperty"
+			],
+			[
+				"pa",
+				"path\twarning"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"updata",
+				"customeModelUpdateManyByQuery\tproperty"
+			],
+			[
+				"req",
+				"require\twarning"
+			],
+			[
+				"$kelas",
+				"$kelasBackup"
+			],
+			[
+				"$o",
+				"$lookup\twarning"
+			],
+			[
+				"customeModelDe",
+				"customeModelDeleteByQuery\tproperty"
+			],
+			[
+				"customede",
+				"customeModelDeleteByQuery\tproperty"
+			],
+			[
+				"del",
+				"customeModelDeleteByQuery\tproperty"
+			],
+			[
+				"ger",
+				"generalCreateDoc\tproperty"
+			],
+			[
+				"get",
+				"getDate\tmethod"
+			],
+			[
+				"getD",
+				"getDay\tmethod"
+			],
+			[
+				"getM",
+				"getMonth\tmethod"
+			],
+			[
+				"$ma",
+				"$match\twarning"
+			],
+			[
+				"Obje",
+				"ObjectId\tconst"
+			],
+			[
+				"find",
+				"customeModelFindByQuery\tproperty"
+			],
+			[
+				"cont",
+				"const\tkeyword"
+			],
+			[
+				"b",
+				"body\twarning"
+			],
+			[
+				"Ta",
+				"Tagihan\talias"
+			],
+			[
+				"his",
+				"historiLoading\tproperty"
+			],
+			[
+				"Tagih",
+				"Tagihan\tclass"
+			],
+			[
+				"mr-",
+				"mr-1"
+			],
+			[
+				"ion-ali",
+				"ion-align-items-end"
+			],
+			[
+				"fl",
+				"flex-1"
+			],
+			[
+				"ion",
+				"ion-float-right"
+			],
+			[
+				"ba",
+				"bayarLoading\tproperty"
+			],
+			[
+				"id",
+				"idTagihan\tparameter"
+			],
+			[
+				"baya",
+				"bayarNanti\tmethod"
+			],
+			[
+				"user",
+				"userData\tproperty"
+			],
+			[
+				"co",
+				"console\tvar"
+			],
+			[
+				"ob",
+				"ObjectId\tconst"
+			],
+			[
+				"customeModelFindByIdSe",
+				"customeModelFindByIdSelectPopulate\tproperty"
+			],
+			[
+				"Ob",
+				"ObjectId\tconst"
+			],
+			[
+				"con",
+				"const\tkeyword"
+			],
+			[
+				"cu",
+				"customeModelFindByQuery\tproperty"
+			],
+			[
+				"fi",
+				"filter\tmethod"
+			],
+			[
+				"pen",
+				"penerimaUi\tproperty"
+			],
+			[
+				"d",
+				"d-flex"
+			],
+			[
+				"te",
+				"text-max-2"
+			],
+			[
+				"c-",
+				"c-medium-tint"
+			],
+			[
+				"ion-te",
+				"ion-text-capitalize"
+			],
+			[
+				"so",
+				"showToast\tmethod"
+			],
+			[
+				"ambilTa",
+				"ambilTagihanPenerima\tmethod"
+			],
+			[
+				"val",
+				"getValueKategori"
+			],
+			[
+				"getVal",
+				"getValueWaliMurid\tmethod"
+			],
+			[
+				"getVla",
+				"getValueSiswa\tmethod"
+			],
+			[
+				"dta",
+				"dataMaster\tproperty"
+			],
+			[
+				"moda",
+				"modal.service\tscript"
+			],
+			[
+				"getValu",
+				"getValueKategori\tmethod"
+			],
+			[
+				"jenis",
+				"jenis"
+			],
+			[
+				"text",
+				"text-max"
+			],
+			[
+				"cuModeup",
+				"customeModelUpdateByQuery\tproperty"
+			],
+			[
+				"ca",
+				"callback\tparameter"
+			],
+			[
+				"wa",
+				"waktuMulai\tlet"
+			],
+			[
+				"_",
+				"_id\twarning"
+			],
+			[
+				"su",
+				"subscribe\tmethod"
+			],
+			[
+				"Tagi",
+				"TagihanService\talias"
+			],
+			[
+				"tag",
+				"tagihan"
+			],
+			[
+				"tagi",
+				"tagihanLoading"
+			],
+			[
+				"ta",
+				"tagihan"
+			],
+			[
+				"show",
+				"showToast\tmethod"
+			],
+			[
+				"getValuek",
+				"getValueKelas\tmethod"
+			],
+			[
+				"mo",
+				"modal"
+			],
+			[
+				"Form",
+				"FormsModule\talias"
+			],
+			[
+				"fin",
+				"find\tmethod"
+			],
+			[
+				"Tag",
+				"TagihanService\talias"
+			],
+			[
+				"Tagiha",
+				"TagihanService\tclass"
+			],
+			[
+				"Take",
+				"takeUntil\talias"
+			],
+			[
+				"imp",
+				"import\tkeyword"
+			],
+			[
+				"Fro",
+				"FormGroup\talias"
+			],
+			[
+				"has",
+				"hasPassword"
+			],
+			[
+				"e",
+				"email\tmethod"
+			],
+			[
+				"wali",
+				"waliMurid"
+			],
+			[
+				"fle",
+				"flex-1"
+			],
+			[
+				"waliM",
+				"waliMuridLoading\tproperty"
+			],
+			[
+				"amb",
+				"ambilWaliMurid\tmethod"
+			],
+			[
+				"jeni",
+				"jenis\tproperty"
+			],
+			[
+				"ambilK",
+				"ambilKategori"
+			],
+			[
+				"ambil",
+				"ambilKelas"
+			],
+			[
+				"am",
+				"ambilKelas\tmethod"
+			],
+			[
+				"ion-t",
+				"ion-text-capitalize"
+			],
+			[
+				"ambi",
+				"ambilSiswa"
+			],
+			[
+				"ka",
+				"kategoriLoading\tproperty"
+			],
+			[
+				"sis",
+				"siswaLoading\tproperty"
+			],
+			[
+				"abm",
+				"ambilKategori\tmethod"
+			],
+			[
+				"kate",
+				"kategoriLoading\tproperty"
+			],
+			[
+				"nama",
+				"namaLengkap\tproperty"
+			],
+			[
+				"lo",
+				"hideLoading\tmethod"
+			],
+			[
+				"For",
+				"FormGroup\talias"
+			],
+			[
+				"f",
+				"flex-1"
+			],
+			[
+				"paddi",
+				"ion-padding-end"
+			],
+			[
+				"ion-padd",
+				"ion-padding-end"
+			],
+			[
+				"na",
+				"navigateBack\tmethod"
+			],
+			[
+				"getVa",
+				"getValueOrtu\tmethod"
+			],
+			[
+				"sus",
+				"success"
+			],
+			[
+				"getsis",
+				"getValueSiswa\tmethod"
+			],
+			[
+				"fo",
+				"form\tproperty"
+			],
+			[
+				"padd",
+				"padding-top\tproperty"
+			],
+			[
+				"getKela",
+				"getValueKelas\tmethod"
+			],
+			[
+				"dat",
+				"dataKelas\tproperty"
+			],
+			[
+				"Moda",
+				"ModalController\talias"
+			],
+			[
+				"Moal",
+				"ModalComponent\talias"
+			],
+			[
+				"taba",
+				"tambahSiswadanOrtu\tmethod"
+			],
+			[
+				"abmi",
+				"ambilKelas\tmethod"
+			],
+			[
+				"tamba",
+				"tambahKelas\tmethod"
+			],
+			[
+				"edit",
+				"editKategori\tmethod"
+			],
+			[
+				"hapu",
+				"hapusKategori\tmethod"
+			],
+			[
+				"value",
+				"values"
+			],
+			[
+				"Ac",
+				"ActivatedRoute\talias"
+			],
+			[
+				"getData",
+				"getDataKelas\tmethod"
+			],
+			[
+				"th",
+				"then"
+			],
+			[
+				"flex",
+				"flex-wrap\tproperty"
+			],
+			[
+				"Can",
+				"CanActivateChild\tinterface"
+			],
+			[
+				"ion-mar",
+				"ion-margin-top"
+			],
+			[
+				"sho",
+				"showToast\tmethod"
+			],
+			[
+				"setV",
+				"setValue\tmethod"
+			],
+			[
+				"Fo",
+				"FormControl\talias"
+			],
+			[
+				"post",
+				"postRequest\tmethod"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "api/public.js",
+			"settings":
+			{
+				"buffer_size": 10860,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/admin.js",
+			"settings":
+			{
+				"buffer_size": 19814,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "module.js",
+			"settings":
+			{
+				"buffer_size": 5383,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"istall",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 124.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models"
+	],
+	"file_history":
+	[
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/server.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/pembayaran.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/rekening.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/fikri.sublime-project",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/.gitignore",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/bayar.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/module.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/api/admin.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/tagihan.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/bayar.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/server/server.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/tagihan/tagihan.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/pembayaran/pembayaran.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/pembayaran/pembayaran.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/theme/custom.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/public.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/tagihan.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/histori/histori.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/public-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/pembayaran/pembayaran-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/pembayaran/pembayaran.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/detail/detail.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/detail/detail.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/tagihan.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/beranda/beranda.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/bayar.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/public.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/modal/modal.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/akun.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/fikri.sublime-project",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/kategori.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/api/auth.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/detail/detail.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/admin.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/admin-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/detail/detail.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/detail/detail.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/data/data.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/tagihan.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/detail/detail.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/master.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/siswa.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/models/user.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/Server/api/public.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/cu/cu.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/cu/cu.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/tagihan.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/pembayaran/pembayaran.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/bayar/bayar.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/beranda/beranda.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/histori/histori.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/master.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/modal/modal/modal.component.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/modal/modal/modal.component.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/master/master.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/cu/cu.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/cu/cu.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/cu/cu.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/cu/cu.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/histori/histori.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/data/data.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/cu/cu-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/detail/detail.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/tagihan.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/detail/detail-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/cu/cu.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/akun.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/theme/variables.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/user/user.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/edit/edit.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/edit/edit.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/auth/masuk/masuk.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/cu/cu.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/pengguna/pengguna.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/cu/cu-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Buku/Wesbite/.vscode/sftp.json",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Buku/Material/buku/assets/js/main.js",
+		"/C/users/ndoos/appdata/local/temp/sublime-sftp-browse-1610784393/sftp-config.json/website/fatihmediagroup.com/themes/companyprofile/pages/beranda.htm",
+		"/C/Users/NDOOS/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/sftp-config.json",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Buku/Wesbite/buku/index.html",
+		"/C/xampp/htdocs/fatihmediagroup/themes/companyprofile/layouts/default.htm",
+		"/C/xampp/htdocs/fatihmediagroup/config/database.php",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/data/data-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/data/data.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/akun/akun.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/guard/admin-guard.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/guard/guard.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/app.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/storage/storage.service.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/akun/akun.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/akun/akun.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/pengguna/pengguna.page.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/admin.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/tagihan/tagihan-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/master-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/master/master.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/admin/beranda/beranda.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/auth/daftar/daftar.page.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/auth/masuk/masuk.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/capacitor.config.json",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/tagihan.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/detail/detail.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/public.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/beranda/beranda.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/bayar.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/edit/edit.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/akun.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/edit/edit.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/edit/edit-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/node_modules/@angular/common/bundles/common-upgrade.umd.js",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/tagihan.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/public.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/modal/popover/popover.component.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/node_modules/@types/node/globals.d.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/services/modal/modal.component.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/bayar.page.scss",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Buku/Wesbite/dking/shop.html",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/beranda/beranda.page.scss",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/detail/detail-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/tagihan/tagihan-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/histori/histori-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/akun/akun-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/beranda/beranda-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/public/bayar/bayar-routing.module.ts",
+		"/C/Users/NDOOS/Desktop/PROJECT/Fikry/App/src/app/pages/auth/masuk/masuk.page.html",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Travel/Website/src/app/admin/admin.component.scss",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Travel/Website/src/app/public/beranda/beranda.component.scss",
+		"/C/Users/NDOOS/Desktop/MFNIZAM/Travel/Website/src/app/public/public.component.ts"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 122.0,
+		"where_history":
+		[
+			"C:\\Users\\NDOOS\\Desktop\\PROJECT\\Fikry\\Server",
+			"C:\\Users\\NDOOS\\Desktop\\PROJECT\\Fikry\\Server\\api",
+			"C:\\Users\\NDOOS\\Desktop\\PROJECT\\Fikry\\Server\\models",
+			"C:\\Users\\NDOOS\\Desktop\\PROJECT\\Fikry\\Server",
+			"C:\\Users\\NDOOS\\Desktop\\PROJECT\\Fikry\\Server\\models"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"6010650e639fab16b0541392",
+			"'6010650e639fab16b0541392'",
+			"Kelas",
+			"Date.now(",
+			"Date.",
+			"Date",
+			"query",
+			"ModelUpdate",
+			"file",
+			"buktiPembayaran",
+			"siswaBakcup",
+			"tgl",
+			"tagl",
+			"status",
+			"customeModelDeleteOneByQuery",
+			"customeModelDeleteByQuery",
+			"'user'",
+			"Date",
+			"new Date",
+			"date.",
+			"Kategori"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "api/public.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10860,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2723,
+								2870
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1287.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "api/admin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18229,
+								18229
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 787.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "module.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5383,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1625,
+								1625
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 169.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 96.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "fikri.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 684.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 316.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

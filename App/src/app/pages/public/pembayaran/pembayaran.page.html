@@ -1,0 +1,150 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="ion-margin-bottom">
+			<ion-col>
+				<div class="header-title">Pembayaran</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-segment mode="ios" scrollable [(ngModel)]="segmentValue" class="ion-no-margin">
+					<ion-segment-button value="pembayaran">
+						<ion-label>Mengunggu Pembayaran</ion-label>
+					</ion-segment-button>
+					<ion-segment-button value="histori">
+						<ion-label>Pembayaran Lunas</ion-label>
+					</ion-segment-button>
+				</ion-segment>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div class="d-flex mb-1">
+					<div class="flex-2 mr-1">
+						<ion-searchbar mode="ios" class="ion-no-padding search-custom"></ion-searchbar>
+					</div>
+					<div class="flex-1 border border-card ml-1">
+						<ion-select mode="ios" interface="popover" okText="Okay" cancelText="Batal" placeholder="Urutkan">
+							<ion-select-option value="terbaru">Terbaru</ion-select-option>
+							<ion-select-option value="terlama">Terlama</ion-select-option>
+							<ion-select-option value="tinggi">Tertinggi (Rp)</ion-select-option>
+							<ion-select-option value="rendah">Terendah (Rp)</ion-select-option>
+						</ion-select>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div [ngSwitch]="segmentValue">
+					<div *ngSwitchCase="'pembayaran'">
+						<div *ngIf="dataPembayaranUi.length > 0">
+							<ion-card *ngFor="let p of dataPembayaranUi" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+								<div [routerLink]="['/public/pembayaran/detail', {id: p._id}]">
+									<div class="d-flex ion-align-items-start mb-1">
+										<h5 class="flex-1 ion-no-margin mr-2 text-max text-max-2"><b>{{p.invoice}}</b></h5>
+										<div class="ion-text-right">
+											<ion-note color="primary"><small>Detail</small></ion-note>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center mb-2">
+										<!-- <div class="flex-shrink-0 opacity-3"><b>Total</b></div> -->
+										<div class="flex-1">
+											<ion-chip class="ion-no-margin" color="primary">
+												<ion-label><small>Rp. </small><b>{{p.nominal | currency:' ':'symbol':'.0':'id'}}{{p.nominal? '' : 0}},-</b></ion-label>
+											</ion-chip>	
+										</div>
+										<div class="flex-shrink-0">
+											<ion-chip outline [color]="p.status == 0? 'danger' : p.status == 2? 'success' : 'warning' ">
+												<ion-icon *ngIf="p.status == 2" name="checkmark"></ion-icon>
+												<ion-label>{{p.status == 1? 'Menunggu Verifikasi' : p.status == 2? 'Lunas' : p.status == 3? 'Gagal Verifikasi' : 'Belum Lunas' }}</ion-label>
+											</ion-chip>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center ion-margin-bottom">
+										<div class="flex-1 opacity-3"><b>Jumlah Tagihan</b></div>
+										<div class="flex-shrink-0">
+											<b>{{p.tagihan?.length}} Tagihan</b>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center">
+										<div class="flex-1 opacity-3"><b>Tranfer Ke</b></div>
+										<div class="flex-shrink-0">
+											<b>{{p.rekeningBackup?.namaBank || p.rekening?.namaBank}} - {{p.rekeningBackup?.noRek || p.rekening?.noRek}}</b>
+										</div>
+									</div>
+								</div>
+								<div *ngIf="p.status == 0 || p.status == 3" class="d-flex ion-align-items-center ion-margin-top">
+									<!-- <div class="mr-2 opacity-3 d-flex ion-align-items-center">
+										<u>Cara Pembayaran</u>
+									</div> -->
+									<div class="flex-1">
+										<ion-button expand="full" shape="round" (click)="unggahBuktiPembayaran(p)">Unggah {{p.status == 3? 'Ulang' : ''}} Bukti Pembayaran</ion-button>
+									</div>
+								</div>
+							</ion-card>
+						</div>
+						<div *ngIf="dataPembayaranUi.length < 1">
+							<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center d-flex ion-align-items-center">
+								<div class="w-100">
+									<div class="mb-1">{{pembayaranLoading == 0? 'Anda Telah Melunasi Semua Pembayaran' : pembayaranLoading == 1? 'Memuat Pembayaran Tagihan..' : 'Gagal Memuat Pembayaran Tagihan'}}</div>
+									<ion-icon *ngIf="!pembayaranLoading" name="happy-outline" color="primary" style="font-size: 30pt;"></ion-icon>
+									<ion-spinner *ngIf="pembayaranLoading == 1" name="lines"></ion-spinner>
+									<ion-button *ngIf="pembayaranLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin" (click)="ambilPembayaran(userData?._id)">Coba Lagi</ion-button>
+								</div>
+							</ion-card>
+						</div>
+					</div>
+					<div *ngSwitchCase="'histori'">
+						<div *ngIf="dataHistoriUi.length > 0">
+							<ion-card *ngFor="let p of dataHistoriUi" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+								<div [routerLink]="['/public/pembayaran/detail', {id: p._id}]">
+									<div class="d-flex ion-align-items-start mb-1">
+										<h5 class="flex-1 ion-no-margin mr-2 text-max text-max-2"><b>{{p.invoice}}</b></h5>
+										<div class="ion-text-right">
+											<ion-note color="primary"><small>Detail</small></ion-note>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center mb-2">
+										<div class="flex-1">
+											<ion-chip class="ion-no-margin" color="primary">
+												<ion-label><small>Rp. </small><b>{{p.nominal | currency:' ':'symbol':'.0':'id'}}{{p.nominal? '' : 0}},-</b></ion-label>
+											</ion-chip>	
+										</div>
+										<div class="flex-shrink-0">
+											<ion-chip outline color="success">
+												<ion-icon name="checkmark"></ion-icon>
+												<ion-label>Lunas</ion-label>
+											</ion-chip>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center ion-margin-bottom">
+										<div class="flex-1 opacity-3"><b>Jumlah Tagihan</b></div>
+										<div class="flex-shrink-0">
+											<b>{{p.tagihan?.length}} Tagihan</b>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center">
+										<div class="flex-1 opacity-3"><b>Tgl Pelunasan</b></div>
+										<div class="flex-shrink-0">
+											<b>{{p.waktuPelunasan | date: 'dd MMM yyy HH:mm'}} {{p.waktuPelunasan? '' : '-'}}</b>
+										</div>
+									</div>
+								</div>
+							</ion-card>
+						</div>
+						<div *ngIf="dataHistoriUi.length < 1">
+							<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center d-flex ion-align-items-center">
+								<div class="w-100">
+									<div class="mb-1">{{historiLoading == 0? 'Data Pembayaran Kosong' : historiLoading == 1? 'Memuat Pembayaran Tagihan..' : 'Gagal Memuat Pembayaran Tagihan'}}</div>
+									<ion-spinner *ngIf="historiLoading == 1" name="lines"></ion-spinner>
+									<ion-button *ngIf="historiLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin" (click)="ambilHistori(userData?._id)">Coba Lagi</ion-button>
+								</div>
+							</ion-card>
+						</div>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

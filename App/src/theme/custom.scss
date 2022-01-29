@@ -1,0 +1,209 @@
+*{
+	outline: none !important;
+}
+//header title
+.header-title{
+	font-weight: bold;
+	font-size: 20pt;
+}
+.alert-title, .alert-sub-title{
+	text-transform: capitalize !important;
+}
+
+.can-go-back{
+	.back-btn{
+		display: flex;
+	}
+}
+
+// background color
+.b-none{
+	background: none;
+}
+.b-primary{
+	background: var(--ion-color-primary);
+}
+.b-secondary{
+	background: var(--ion-color-primary);
+}
+.b-dark-30p{
+	background: rgba(var(--ion-color-dark-rgb), .3);
+}
+
+//color
+.c-primary{
+	color: var(--ion-color-primary);	
+}
+.c-primary-100{
+	color: var(--ion-color-primary-100);	
+}
+.c-medium-tint{
+	color: var(--ion-color-medium-tint);	
+}
+.c-light{
+	color: var(--ion-color-light)
+}
+
+//position
+.p-relative{ position: relative; }
+.p-absolute{ position: absolute; }
+.p-fixed{ position: fixed; }
+.l-0{ left: 0; }
+.r-0{ right: 0; } 
+.l--05{ left: -0.3rem; }
+.t-0{ top: 0; }
+.b-0{ bottom: 0; }
+
+//overflow
+.o-hidden{ overflow: hidden; }
+.o-auto{ overflow: auto; }
+
+// display
+.d-none{ display: none; }
+.d-flex{ display: flex !important; }
+.flex-column{ flex-direction: column; }
+.align-items-center{ align-items: center; }
+.flex-1{ flex: 1 !important; }
+.flex-2{ flex: 2 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.flex-wrap{ flex-wrap: wrap; }
+
+// size
+.h-100{ height: 100%; }
+.h-auto{ height: auto; }
+.h-6r{ height: 6rem }
+.w-100{ width: 100%; }
+.w-50{ width: 50%; }
+.mw-4r{ min-width: 4rem }
+.mh-100{ min-height: 100px }
+.mh-90{ min-height: 90px }
+
+//spacing
+.mb-0{ margin-bottom: 0; }
+.mb-1{ margin-bottom: .5rem; }
+.mb-2{ margin-bottom: 1rem; }
+.mr-1{ margin-right: .5rem; }
+.mr-2{ margin-right: 1rem; }
+.my-1{ margin-top: .5rem; margin-bottom: .5rem; }
+.mt-1{ margin-top: .5rem; }
+.ml-1{ margin-left: .5rem; }
+
+.p-1 { padding: .5rem; }
+.pb-4 { padding-bottom: 3rem; }
+.py-05 { padding-top: .3rem; padding-bottom: .3rem }
+.py-1 { padding-top: .5rem; padding-bottom: .5rem }
+.px-05 { padding-left: .3rem; padding-right: .3rem }
+.px-1 { padding-left: .5rem; padding-right: .5rem }
+.px-2 { padding-left: 1rem; padding-right: 1rem }
+.pt-50p{ padding-top: 50%; }
+.pt-50p{ padding-top: 50%; }
+
+//border
+.border-avatar{ /* border: 2px var(--ion-color-primary-800) solid; */ }
+.border-avatar-shade{ border: 2px var(--ion-color-light-shade) solid; }
+.border{ border: 1px solid var(--ion-color-light-shade) }
+.border-bottom{ border-bottom: 1px solid var(--ion-color-light-shade) }
+.border-top{ border-top: 1px solid var(--ion-color-light-shade) }
+.border-right{ border-right: 1px solid var(--ion-color-light-shade) }
+.border-round{ border-radius: 64px; }
+.border-50p{ border-radius: 50%; }
+.border-card{ border-radius: 8px }
+
+//text
+.wp-nowrap{
+	white-space: nowrap;
+}
+//text max line
+.text-max{
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-box-orient: vertical;
+}
+.text-max-1{ -webkit-line-clamp: 1; }
+.text-max-2{ -webkit-line-clamp: 2; }
+.text-max-3{ -webkit-line-clamp: 3; }
+
+//size
+.h-auto{ height: auto; }
+
+//opacity
+.opacity-0{ opacity: 0 }
+.opacity-1{ opacity: .2 }
+.opacity-2{ opacity: .4 }
+.opacity-3{ opacity: .6 }
+.opacity-4{ opacity: .8 }
+.opacity-5{ opacity: 1 }
+
+//outline
+.outline-none{ outline: none }
+
+//box-shadow
+.no-shadow{ box-shadow: none; }
+
+//segment
+ion-segment{
+	margin-bottom: 15px;
+	--background: var(--ion-color-primary-900);
+	color: var(--ion-color-primary);
+	border-radius: 20px;
+
+	&::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+		height: 0;
+	}
+
+	ion-segment-button{
+		min-width: auto;
+		--color-checked: var(--ion-color-light);
+		--border-radius: 20px;
+	}
+
+	ion-segment-button::part(indicator-background){
+		background: var(--ion-color-primary);
+	}
+}
+
+// modal
+.modal-custom{
+	.modal-wrapper{
+		max-width: calc(100% - 52px);
+		max-height: 75%;
+		border-radius: 13px;
+		height: initial;
+		display: flex;
+		margin-top: -30px;
+
+		app-modal{
+			position: relative;
+			height: unset;
+			width: 100%;
+			contain: unset;
+			color: var(--ion-text-color, #000);
+		}
+	}
+}
+
+// custome field
+.currency{
+	// border-bottom: 1px solid red;
+	.label{
+		font-size: 9pt;
+	}
+	input{
+		width: 100%;
+		border: none;
+		margin: 8px 0;
+	}
+}
+
+.search-custom{ 
+	height: 100%;
+	contain: unset !important; 
+
+	.searchbar-input-container{
+		height: 100% !important;
+	}
+}
+.contain-unset{ contain: unset !important; }

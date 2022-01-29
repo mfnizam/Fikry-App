@@ -1,0 +1,71 @@
+<ion-content class="ion-padding">
+	<ion-grid class="ion-padding-bottom">
+		<ion-row class="header-title ion-align-items-center">
+			<!-- <ion-col size="auto" class="d-flex">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col> -->
+			<ion-col>Tagihan</ion-col>
+			<ion-col size="auto">
+				<ion-note routerLink="cu" color="primary">+ Tambah Tagihan</ion-note>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-searchbar mode="ios" class="ion-no-padding"></ion-searchbar>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div #tagihanList *ngFor="let t of dataTagihan; let i = index;">
+					<ion-card [routerLink]="['/admin/tagihan/detail', {id: t._id}]" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+						<div class="d-flex ion-align-items-start mb-1">
+							<h4 class="ion-no-margin flex-1 text-max text-max-1"><b>{{t.title}}</b></h4>
+						</div>
+						<div class="d-flex ion-align-items-center flex-wrap mb-1">
+							<!-- <div class="flex-1">
+								<ion-chip class="ion-no-margin" color="primary">
+									<ion-label><b>Siawa Kelas 2A</b></ion-label>
+								</ion-chip>	
+							</div> -->
+							<div class="flex-2">
+								<ion-chip class="ion-no-margin" color="primary">
+									<!-- <ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label> -->
+									<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+								</ion-chip>	
+							</div>
+							<div class="flex-1 flex-shrink-0">
+								<div class="opacity-4">Kategori </div>
+								<b class="ion-text-capitalize">{{t.kategori.title}}</b>
+							</div>
+						</div>
+						<p class="text-max text-max-3">{{t.deskripsi}}</p>
+						<div class="d-flex ion-align-items-center mb-1">
+							<div class="mr-1 flex-1">
+								<div class="opacity-4">Tagihan Untuk: </div>
+								<ion-note color="primary">
+									<b class="ion-text-capitalize text-max text-max-1">
+										<span *ngFor="let k of t.kelas; let last = last">{{k.title + (!last? ', ' : '')}}</span>
+									</b>
+								</ion-note>
+							</div>
+						</div>
+						<div>
+							<div>Waktu Pembayaran:</div>
+							<b class="ion-text-capitalize">{{t.waktuMulai | date: 'dd MMM yyy'}} - {{t.waktuAkhir | date: 'dd MMM yyy'}}</b>
+						</div>
+					</ion-card>
+				</div>
+				<ion-card *ngIf="dataTagihan.length < 1 || (dataTagihan.length < 1 && tagihanLoading > 0)" mode="ios" class="ion-no-margin ion-padding o-hidden h-6r">
+					<div class="ion-text-center">
+						<h6 class="ion-no-margin mb-1 c-medium-tint">
+							{{tagihanLoading == 1? 'Memuat Data Tagihan..' : tagihanLoading == 0? 'Data Tagihan Kosong' : 'Gagal Memuat Data'}}
+						</h6>
+						<ion-button routerLink="cu" *ngIf="tagihanLoading == 0" mode="ios" size="small" color="primary">Tambah Tagihan</ion-button>
+						<ion-spinner *ngIf="tagihanLoading == 1" name="lines"></ion-spinner>
+						<ion-button *ngIf="tagihanLoading == 2" mode="ios" size="small" color="warning" (click)="ambilTagihan()">Coba Lagi</ion-button>
+					</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

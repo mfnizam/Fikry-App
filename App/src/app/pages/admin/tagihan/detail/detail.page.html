@@ -1,0 +1,145 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row class="header-title ion-margin-bottom ion-align-items-center">
+			<ion-col size="auto" class="d-flex">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col>
+			<ion-col>Detail Tagihan</ion-col>
+			<ion-col size="auto">
+				<div class="flex-shrink-0">
+					<h2 class="ion-no-margin">
+						<ion-icon [routerLink]="['/admin/tagihan/cu', {update: true, id: dataTagihan?._id}]" name="create-outline" class="mr-2"></ion-icon>
+						<ion-icon name="trash-outline" color="danger" (click)="hapus()"></ion-icon>
+					</h2>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<h3 class="ion-no-margin text-max text-max-2"><b>{{dataTagihan?.title}}</b></h3>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				{{dataTagihan?.deskripsi}}
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="8">
+				<ion-chip class="ion-no-margin" color="primary">
+					<ion-label><small>Rp. </small><b>{{dataTagihan?.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+				</ion-chip>	
+			</ion-col>
+			<ion-col size="4">
+				<div class="opacity-4"><small>Kategori </small></div>
+				<b class="ion-text-capitalize text-max text-max-1">{{dataTagihan?.kategori?.title}}</b>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div class="d-flex ion-align-items-center mb-1">
+					<div class="mr-1 flex-1">
+						<div class="opacity-4"><small>Tagihan Untuk: </small></div>
+						<ion-note color="primary">
+							<b class="ion-text-capitalize">
+								<span *ngFor="let k of dataTagihan?.kelas; let last = last">{{k.title + (!last? ', ' : '')}}</span>
+							</b>
+						</ion-note>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div>
+					<div><small>Waktu Pembayaran:</small></div>
+					<b class="ion-text-capitalize">{{dataTagihan?.waktuMulai | date: 'dd MMM yyy'}} - {{dataTagihan?.waktuAkhir | date: 'dd MMM yyy'}}</b>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<h3 class="c-medium-tint ion-no-margin ion-margin-top">Penerima Tagihan</h3>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-segment mode="ios" [(ngModel)]="segmentValue">
+					<ion-segment-button value="belum-lunas">
+						<ion-label>Belum Lunas</ion-label>
+					</ion-segment-button>
+					<ion-segment-button value="lunas">
+						<ion-label>Lunas</ion-label>
+					</ion-segment-button>
+				</ion-segment>
+
+				<div [ngSwitch]="segmentValue">
+					<div *ngSwitchCase="'belum-lunas'">
+						<div *ngIf="penerimaBelumLunas.length > 0">
+							<ion-card *ngFor="let p of penerimaBelumLunas" [routerLink]="['/admin/master/detail', {jenis: 'wali murid', id: p._id}]" mode="ios" class="ion-no-margin ion-margin-bottom px-2 mh-90 border-avatar d-flex ion-align-items-center">
+								<div class="d-flex ion-align-items-center flex-wrap">
+									<ion-avatar class="ion-margin-end flex-shrink-0">
+										<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+									</ion-avatar>
+									<div class="flex-1">
+										<div class="text-max text-max-1"><b>{{p.namaLengkap || '-'}}</b></div>
+										<div class="text-max text-max-1"><small>{{p.noTlp || '-'}}</small></div>
+										<div class="ion-text-capitalize text-max text-max-2">
+											<small class="c-medium-tint">tagihan siswa:</small>&nbsp;<small *ngFor="let s of p.siswa; let last = last;">{{s.namaLengkap }} <b class="c-primary">({{(s.kelas?.title) + (last? ')' : '), ')}}</b></small>
+										</div>
+									</div>
+									<div class="flex-shrink-0">
+										<ion-icon name="chevron-forward-outline"></ion-icon>
+									</div>
+								</div>
+							</ion-card>
+						</div>
+
+						<ion-card *ngIf="penerimaBelumLunas.length < 1" mode="ios" class="ion-no-margin ion-padding o-hidden">
+							<div class="ion-text-center">
+								<h6 class="ion-no-margin c-medium-tint">
+									{{penerimaBelumLoading == 1? 'Memuat Data Penerima Tagihan...' : penerimaBelumLoading == 0? 'Data Penerima Tagihan Kosong' : 'Gagal Memuat Data Penerima Tagihan'}}
+								</h6>
+								<ion-spinner *ngIf="penerimaBelumLoading == 1" name="lines" class="mt-1"></ion-spinner>
+								<ion-button *ngIf="penerimaBelumLoading == 2" mode="ios" size="small" color="warning" class="mt-1" (click)="ambilPenerimaBelumLunas(dataTagihan._id)">Coba Lagi</ion-button>
+							</div>
+						</ion-card>
+					</div>
+
+
+					<div *ngSwitchCase="'lunas'">
+						<div *ngIf="penerimaLunas.length > 0">
+							<ion-card *ngFor="let p of penerimaLunas" [routerLink]="['/admin/master/detail', {jenis: 'wali murid', id: p._id}]" mode="ios" class="ion-no-margin ion-margin-bottom px-2 mh-90 border-avatar d-flex ion-align-items-center">
+								<div class="d-flex ion-align-items-center flex-wrap">
+									<ion-avatar class="ion-margin-end flex-shrink-0">
+										<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+									</ion-avatar>
+									<div class="flex-1">
+										<div class="text-max text-max-1"><b>{{p.namaLengkap || '-'}}</b></div>
+										<div class="text-max text-max-1"><small>{{p.noTlp || '-'}}</small></div>
+										<div class="ion-text-capitalize text-max text-max-2">
+											<small class="c-medium-tint">tagihan siswa:</small>&nbsp;<small *ngFor="let s of p.siswa; let last = last;">{{s.namaLengkap }} <b class="c-primary">({{(s.kelas?.title) + (last? ')' : '), ')}}</b></small>
+										</div>
+									</div>
+									<div class="flex-shrink-0">
+										<ion-icon name="chevron-forward-outline"></ion-icon>
+									</div>
+								</div>
+							</ion-card>
+						</div>
+
+						<ion-card *ngIf="penerimaLunas.length < 1" mode="ios" class="ion-no-margin ion-padding o-hidden">
+							<div class="ion-text-center">
+								<h6 class="ion-no-margin c-medium-tint">
+									{{penerimaLunasLoading == 1? 'Memuat Data Penerima Tagihan...' : penerimaLunasLoading == 0? 'Data Penerima Tagihan Kosong' : 'Gagal Memuat Data Penerima Tagihan'}}
+								</h6>
+								<ion-spinner *ngIf="penerimaLunasLoading == 1" name="lines" class="mt-1"></ion-spinner>
+								<ion-button *ngIf="penerimaLunasLoading == 2" mode="ios" size="small" color="warning" class="mt-1" (click)="ambilPenerimaLunas(dataTagihan._id)">Coba Lagi</ion-button>
+							</div>
+						</ion-card>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,172 @@
+<ion-content class="ion-padding">
+	<ion-grid class="ion-padding-bottom ion-margin-bottom">
+		<ion-row class="ion-align-items-center ion-margin-bottom">
+			<ion-col size="auto" class="d-none back-btn header-title ">
+				<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+			</ion-col>
+			<ion-col class="header-title">Tagihan Anda</ion-col>
+			<!-- <ion-col size="auto" class="opacity-4 c-primary"><small>{{dataTagihan.length}} Tagihan Lunas</small></ion-col> -->
+		</ion-row>
+		
+		<ion-row>
+			<ion-col>
+				<ion-segment mode="ios" scrollable [(ngModel)]="segmentValue" class="ion-no-margin">
+					<ion-segment-button value="belum">
+						<ion-label>Belum Lunas ({{dataTagihan.length}})</ion-label>
+					</ion-segment-button>
+					<ion-segment-button value="lunas">
+						<ion-label>Lunas ({{dataHistori.length}})</ion-label>
+					</ion-segment-button>
+				</ion-segment>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+			<ion-col>
+				<!-- <ion-searchbar mode="ios" class="ion-no-padding h-auto mb-2 contain-unset"></ion-searchbar> -->
+				<div class="d-flex mb-1">
+					<div class="flex-2 mr-1">
+						<ion-searchbar mode="ios" class="ion-no-padding search-custom"></ion-searchbar>
+					</div>
+					<div class="flex-1 border border-card ml-1">
+
+						<ion-select mode="ios" interface="popover" okText="Okay" cancelText="Batal" placeholder="Urutkan">
+							<ion-select-option value="terbaru">Terbaru</ion-select-option>
+							<ion-select-option value="terlama">Terlama</ion-select-option>
+							<ion-select-option value="tinggi">Tertinggi (Rp)</ion-select-option>
+							<ion-select-option value="rendah">Terendah (Rp)</ion-select-option>
+						</ion-select>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row class="ion-margin-bottom">
+			<ion-col>
+				<div [ngSwitch]="segmentValue">
+					<div *ngSwitchCase="'belum'">
+						<div *ngIf="dataTagihanUi.length > 0">
+							<div #tagihanList *ngFor="let t of dataTagihanUi; let i = index;">
+								<ion-card size="12" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+									<div [routerLink]="['/public/tagihan/detail', {id: t._id, idSiswa: t.siswa?._id}]">
+										<div class="d-flex ion-align-items-start mb-2">
+											<h4 class="ion-no-margin flex-1 text-max text-max-1"><b>{{t.title}}</b></h4>
+										</div>
+										<div class="d-flex ion-align-items-center flex-wrap mb-2">
+											<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+												<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+											</ion-avatar>
+											<div class="flex-1">
+												<div class="text-max text-max-1"><b>{{t.siswa?.namaLengkap || '-'}}</b></div>
+												<div>{{t.siswa?.kelas?.title || '-'}}</div>
+											</div>
+											<div class="flex-shrink-0 my-1">
+												<ion-chip class="ion-no-margin" color="primary">
+													<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+												</ion-chip>	
+											</div>
+										</div>
+										<p class="text-max text-max-3 mb-1">{{t.deskripsi}}</p>
+										<div class="mb-1">
+											<div class="opacity-4">Waktu Pembayaran:</div>
+											<b class="ion-text-capitalize">{{t.waktuMulai | date: 'dd MMM yyy'}} - {{t.waktuAkhir | date: 'dd MMM yyy'}}</b>
+										</div>
+									</div>
+									<div class="d-flex ion-align-items-center">
+										<div class="mr-1 flex-1 text-max text-max-2"><div class="opacity-4">Kategori: </div><b class="ion-text-capitalize">{{t.kategori.title}}</b></div>
+										<ion-button mode="ios" color="primary" shape="round" class="flex-2" (click)="tambahBayar(t._id, t.siswa._id, i)">
+											<div class="d-flex ion-align-items-center ion-justify-content-center">
+												<b [style.opacity]="t.loading? 0 : 1" class="my-1 py-05">+ Bayar</b>
+												<ion-spinner [style.opacity]="t.loading? 1 : 0" name="lines" class="p-absolute"></ion-spinner>
+											</div>
+										</ion-button>
+									</div>
+								</ion-card>
+							</div>
+						</div>
+						<div *ngIf="dataTagihanUi.length < 1" class="mb-2">
+							<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center h-6r d-flex ion-align-items-center">
+								<div class="w-100">
+									<div class="mb-1">{{tagihanLoading == 0? 'Selamat anda telah melunasi semua tagihan' : tagihanLoading == 1? 'Memuat Data Tagihan..' : 'Gagal Memuat Tagihan'}}</div>
+									<ion-icon *ngIf="!tagihanLoading" name="happy-outline" color="primary" style="font-size: 30pt;"></ion-icon>
+									<ion-spinner *ngIf="tagihanLoading == 1" name="lines"></ion-spinner>
+									<ion-button *ngIf="tagihanLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin" (click)="ambilTagihan(userData?._id)">Coba Lagi</ion-button>
+								</div>
+							</ion-card>
+						</div>
+					</div>
+
+					<div *ngSwitchCase="'lunas'">
+						<div *ngIf="dataHistoriUi.length > 0">
+							<div #tagihanList *ngFor="let t of dataHistoriUi; let i = index;">
+								<ion-card size="12" mode="ios" class="ion-no-margin ion-padding ion-margin-bottom border-avatar">
+									<div [routerLink]="['/public/tagihan/detail', {id: t._id, idSiswa: t.siswa?._id}]">
+										<div class="d-flex ion-align-items-start mb-2">
+											<h4 class="ion-no-margin flex-1 text-max text-max-2"><b>{{t.title}}</b></h4>
+											<div class="flex-shrink-0 ion-margin-start">
+												<ion-chip outline color="success" class="ion-no-margin">
+													<ion-icon name="checkmark"></ion-icon>
+													<ion-label>Lunas</ion-label>
+												</ion-chip>
+											</div>
+										</div>
+										<div class="d-flex ion-align-items-center flex-wrap mb-2">
+											<ion-avatar class="flex-shrink-0 mr-2 border-avatar">
+												<img src="https://investor.waskita.co.id/assets/img/no-profile-photo.jpg">
+											</ion-avatar>
+											<div class="flex-1">
+												<div class="text-max text-max-1"><b>{{t.siswa?.namaLengkap || '-'}}</b></div>
+												<div>{{t.kelas?.title || '-'}}</div>
+											</div>
+											<div class="flex-shrink-0 my-1">
+												<ion-chip class="ion-no-margin" color="primary">
+													<ion-label><small>Rp. </small><b>{{t.nominal | currency:' ':'symbol':'.0':'id'}},-</b></ion-label>
+												</ion-chip>	
+											</div>
+										</div>
+										<p class="text-max text-max-2 mb-1">{{t.deskripsi}}</p>
+										<div class="mb-1 d-flex ion-align-items-center">
+											<div class="flex-1 text-max text-max-2">
+												<div class="opacity-4">Tgl Pelunasan:</div>
+												<b class="ion-text-capitalize">{{t.waktuMulai | date: 'dd MMM yyy'}}</b>
+											</div>
+											<div class="flex-1 mr-1 text-max text-max-2">
+												<div class="opacity-4">Kategori: </div>
+												<b class="ion-text-capitalize">{{t.kategori.title}}</b>
+											</div>
+										</div>
+									</div>
+									<!-- <div class="d-flex ion-align-items-center">
+										<div class="mr-1 flex-1 text-max text-max-2"><div class="opacity-4">Kategori: </div><b class="ion-text-capitalize">{{t.kategori.title}}</b></div>
+										<div class="flex-shrink-0">
+											<ion-chip outline color="success">
+												<ion-icon name="checkmark"></ion-icon>
+												<ion-label>Lunas</ion-label>
+											</ion-chip>
+										</div>
+									</div> -->
+								</ion-card>
+							</div>
+						</div>
+
+						<div *ngIf="dataHistoriUi.length < 1" class="mb-2">
+							<ion-card mode="ios" class="ion-no-margin ion-padding ion-text-center d-flex ion-align-items-center">
+								<div class="w-100">
+									<div class="mb-1">{{historiLoading == 0? 'Tagihan Lunas Kosong' : historiLoading == 1? 'Memuat Data Tagihan..' : 'Gagal Memuat Tagihan'}}</div>
+									<ion-spinner *ngIf="historiLoading == 1" name="lines"></ion-spinner>
+									<ion-button *ngIf="historiLoading == 2" mode="ios" size="small" color="warning" class="ion-no-margin" (click)="ambilTagihanHistori(userData?._id)">Coba Lagi</ion-button>
+								</div>
+							</ion-card>
+						</div>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-fab #bayarFab vertical="bottom" horizontal="end" slot="fixed" mode="ios" class="d-none back-btn">
+		<ion-fab-button routerLink="/public/list/tagihan/bayar">
+			<ion-icon name="wallet"></ion-icon>
+		</ion-fab-button>
+		<ion-badge *ngIf="jumlahBayar > 0" mode="ios" color="danger" class="p-absolute l--05 t-0 px-05">{{jumlahBayar}}</ion-badge>
+	</ion-fab>
+</ion-content>

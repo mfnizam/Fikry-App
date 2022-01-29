@@ -1,0 +1,29 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <!-- <ion-tab-button tab="beranda">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Beranda</ion-label>
+    </ion-tab-button> -->
+    <ion-tab-button tab="tagihan">
+      <ion-icon name="document-text"></ion-icon>
+      <ion-label>Tagihan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="pembayaran" #pembayaranTab>
+      <ion-icon name="reader"></ion-icon>
+      <ion-label>Pembayaran</ion-label>
+      <ion-badge *ngIf="jumlahPembayaran > 0" mode="ios" color="danger">{{jumlahPembayaran}}</ion-badge>
+    </ion-tab-button>
+    <!-- <ion-tab-button tab="pengguna">
+      <ion-icon name="people"></ion-icon>
+      <ion-label>Pengguna</ion-label>
+    </ion-tab-button> -->
+    <ion-tab-button tab="master">
+      <ion-icon name="albums"></ion-icon>
+      <ion-label>Master Data</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="akun">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Akun</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
